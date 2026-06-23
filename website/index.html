@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bouwwerken Segers | Nieuwbouw & Renovatie</title>
+    <style>
+        /* Algemene Stijlen */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth; /* Zorgt voor soepel scrollen naar secties */
+        }
+
+        body {
+            color: #4a5568; /* Donkergrijze tekst voor noodzakelijke leesbaarheid */
+            line-height: 1.6;
+            background-color: #f7fafc; /* Zeer lichtgrijze achtergrond */
+        }
+
+        /* Navigatie */
+        header {
+            background-color: #e2e8f0; /* Lichtgrijze navigatiebalk */
+            color: #4a5568;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-bottom: 3px solid #31a810; /* Groene accentlijn */
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 20px; /* Iets minder padding om ruimte te bieden aan het logo */
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 110px; /* Perfecte hoogte voor in de menubalk */
+            width: auto;
+            display: block;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #4a5568;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #31a810; /* Jouw Groen op hover */
+        }
+
+        /* Hero Sectie */
+        .hero {
+            background: linear-gradient(rgba(226, 232, 240, 0.85), rgba(226, 232, 240, 0.85)), url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #2d3748;
+            padding: 0 20px;
+            margin-top: 78px;
+        }
+
+        .hero-content h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #2d3748;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 800px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #31a810; /* Jouw Groen */
+            color: #fff;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #27850d;
+        }
+
+        /* Secties Algemeen */
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+            position: relative;
+            color: #2d3748;
+        }
+
+        section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #31a810; /* Jouw Groen */
+            margin: 10px auto 0 auto;
+        }
+
+        /* Diensten */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #edf2f7; /* Lichtgrijs vlak */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            text-align: center;
+            border-top: 5px solid #cbd5e0; /* Iets donkerder grijs randje */
+            transition: transform 0.3s, border-top-color 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-top-color: #31a810; /* Rand wordt groen bij hover */
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            color: #2d3748;
+        }
+
+        /* Realisaties / Projecten Sectie */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            background-color: #edf2f7; /* Lichtgrijs vlak */
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            border-bottom: 4px solid #cbd5e0;
+            transition: transform 0.3s, border-bottom-color 0.3s;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            border-bottom-color: #31a810; /* Groene onderrand bij hover */
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            background-color: #cbd5e0;
+        }
+
+        .portfolio-info {
+            padding: 20px;
+        }
+
+        .portfolio-info h3 {
+            font-size: 20px;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-info p {
+            font-size: 15px;
+            color: #4a5568;
+        }
+
+        /* Over Ons */
+        .about-section {
+            background-color: #edf2f7; /* Lichtgrijs vlak */
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            padding: 60px 40px;
+            border-left: 5px solid #31a810; /* Groen accent */
+        }
+
+        /* Contact */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-info {
+            background-color: #edf2f7; /* Lichtgrijs vlak */
+            color: #4a5568;
+            padding: 40px;
+            border-radius: 8px;
+        }
+
+        .contact-info h3 {
+            color: #31a810; /* Jouw Groen */
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+        }
+
+        .contact-text-box {
+            background-color: #edf2f7; /* Lichtgrijs vlak */
+            color: #4a5568;
+            padding: 40px;
+            border-radius: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #e2e8f0; /* Lichtgrijze footer */
+            color: #718096;
+            text-align: center;
+            padding: 25px;
+            font-size: 14px;
+            margin-top: 40px;
+            border-top: 1px solid #cbd5e0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h2 { font-size: 32px; }
+            .hero-content p { font-size: 16px; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigatiebalk -->
+    <header>
+        <div class="nav-container">
+            <div class="logo-container">
+                <!-- Het logo uit de bijlage wordt hier ingeladen -->
+                <img src="Bouwwerken_Segers_Logo1_2.jpg" alt="Bouwwerken Segers Logo" class="logo-img">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#diensten">Diensten</a></li>
+                    <li><a href="#realisaties">Realisaties</a></li>
+                    <li><a href="#over-ons">Over Ons</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero / Intro Sectie -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+<h2>BOUWWERKEN SEGERS BV</h2>
+            <h2>Wij trekken uw plan</h2>
+            <p>Van kleinschalige renovaties tot complete nieuwbouwprojecten. Bouwwerken Segers staat garant voor kwaliteit, vakmanschap en een transparante service.</p>
+            <a href="#contact" class="btn">Vraag een vrijblijvende offerte aan</a>
+        </div>
+    </section>
+
+    <!-- Diensten Sectie -->
+    <section id="diensten">
+        <h2>Onze Diensten</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Nieuwbouw</h3>
+                <p>Wij realiseren uw droomwoning van de fundering tot de afwerking, volledig volgens de modernste energienormen.</p>
+            </div>
+            <div class="service-card">
+                <h3>Renovatie & Ombouw</h3>
+                <p>Uw bestaande woning in een nieuw jasje? Wij transformeren oude ruimtes tot moderne, functionele leefomgevingen.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Realisaties / Projecten Sectie -->
+    <section id="realisaties">
+        <h2>Onze Realisaties</h2>
+        <div class="portfolio-grid">
+            
+            <!-- Project 1 -->
+            <div class="portfolio-item">
+                <img src="maaseik.jpg" alt="Moderne Villa" class="portfolio-img">
+                <div class="portfolio-info">
+                    <h3>Moderne Villa (Maaseik)</h3>
+                    <p>Volledige nieuwbouw van een energiezuinige, moderne gezinswoning met oog voor detail en strakke architectuur.</p>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="portfolio-item">
+                <img src="genk.jfif" alt="Totaalrenovatie Burgerwoning" class="portfolio-img">
+                <div class="portfolio-info">
+                    <h3>Totaalrenovatie ééngzinswoning (Genk)</h3>
+                    <p>Restauratie en modernisering van de oude gevel en het aanpassen van de binnenruimtes.</p>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="portfolio-item">
+                <img src="diest.jpg" alt="Aanbouw met Lichtstraat" class="portfolio-img">
+                <div class="portfolio-info">
+                    <h3>Woninguitbreiding (Hasselt)</h3>
+                    <p>Vergroting van de leefruimte door een moderne achterbouw met grote glaspartijen voor optimale lichtinval.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Over Ons Sectie -->
+    <section id="over-ons">
+        <div class="about-section">
+            <h2>Over Bouwwerken Segers</h2>
+            <div class="about-content">
+                <p>Met meer dan 10 jaar ervaring in de bouwsector is Bouwwerken Segers uitgegroeid tot een betrouwbare partner in de regio. Ons team van gepassioneerde vakmensen streeft bij elk project naar perfectie.</p>
+                <br>
+                <p>Wij geloven in een persoonlijke aanpak. Vanaf het eerste gesprek tot de oplevering denken we met u mee over materialen, planning en budget, zodat u nooit voor verrassingen komt te staan.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Sectie -->
+    <section id="contact">
+        <h2>Contacteer Ons</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Contactgegevens</h3>
+                <p><strong>Adres:</strong> Wezelbaan 137, 3290 Diest</p>
+                <p><strong>E-mail:</strong> info@bouwwerkensegers.be</p>
+                <p><strong>BTW-nummer:</strong> BE 0699.585.576</p>
+            </div>
+            <div class="contact-text-box">
+                <h3>Spreken we snel af?</h3>
+                <p>Heeft u concrete plannen of wilt u gewoon even brainstormen over de mogelijkheden? Neem gerust contact met ons op via bovenstaande gegevens. We komen graag bij u langs voor een verkennend gesprek.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Bouwwerken Segers. Alle rechten voorbehouden.</p>
+    </footer>
+
+</body>
+</html>
